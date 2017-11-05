@@ -1,3 +1,6 @@
+"""Ce script crée le modele de Deep Learning, l'entraine et le sauve (en JSON) ainsi que ses poids (en h5)"""
+
+
 from __future__ import division
 import keras
 from keras.models import Sequential
@@ -14,7 +17,7 @@ with open(pathChandelles, "rb") as file:
     chandelles = pickle.load(file)
 
 
-#input = cours des 50 dernieres chandelles
+#input = [[cours1, volume1], [cours2, volume2], ...]
 #output = cours de la prochaine chandelle
 batch_x = []
 batch_y = []
