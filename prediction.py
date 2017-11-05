@@ -3,6 +3,8 @@
 Created on Sat Nov  4 18:17:00 2017
 
 @author: matthieu
+
+Ce script permet d'importer un modele de Deep Learning, ainsi que ses poids, et de l'appliquer pour predire le cours de la futur chandelle
 """
 
 import keras
