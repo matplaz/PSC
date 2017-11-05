@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+"""Ce script initialise une classe Chandelles, capable de créer les chandelles sous format liste a partir des 
+donnees de trading CSV, et de les sauver sur le disque"""
 
 from __future__ import division
 import csv
