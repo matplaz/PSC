@@ -6,7 +6,7 @@ dataset = pd.read_csv(open("C:/Users/antoine/Desktop/Polytechnique/Travail/2A/PS
 df=dataset.iloc[:,[1,2,3,4,-3]] #crée un dataFrame à partir des collonees 'volume', 'market', 'price', 'candle_15min'
 
 
-chandelles=pd.DataFrame(columns=['L','M','Pmin','PQ1','Pméd','PQ3','Pmax','return']) # L:volume échangé en limite; M: volume échangé en markets, Pmin,PQ1,Pméd,PQ3,Pmax:min, premier quartile, médiane, troisième qurtile, max des prix des échanges d'ordre 'market', 'return':(P_close-P_open)/P_open
+chandelles=pd.DataFrame(columns=['L','M','Pmin','PQ1','Pmed','PQ3','Pmax','return']) # L:volume échangé en limite; M: volume échangé en markets, Pmin,PQ1,Pméd,PQ3,Pmax:min, premier quartile, médiane, troisième qurtile, max des prix des échanges d'ordre 'market', 'return':(P_close-P_open)/P_open
 
 d_lim=df[df.market=='l'].groupby('candle_15min')
 
@@ -18,7 +18,7 @@ chandelles['L']=d_lim['volume'].apply(lambda x: x.sum())
 chandelles['M']=d_market['volume'].apply(lambda x: x.sum())
 chandelles['Pmin']=d_market['price'].apply(lambda x: x.min())
 chandelles['PQ1']=d_market['price'].apply(lambda x: x.quantile(0.25))
-chandelles['Pméd']=d_market['price'].apply(lambda x: x.quantile(0.5))
+chandelles['Pmed']=d_market['price'].apply(lambda x: x.quantile(0.5))
 chandelles['PQ3']=d_market['price'].apply(lambda x: x.quantile(0.75))
 chandelles['Pmax']=d_market['price'].apply(lambda x: x.max())
 
